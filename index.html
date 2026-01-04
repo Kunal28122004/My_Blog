@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Ride-Booking System Design</title>
+  <meta name="description" content="Designing a reliable ride-booking system with smart matching, fair pricing, instant driver swap, and better UX.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav reveal">
+  <div class="nav-container">
+    <div class="logo">RideIt</div>
+    <div class="nav-links">
+      <a href="#blog">Article</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#features">Features</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero reveal" id="hero">
+  <div class="hero-container">
+    <div class="hero-label">System Design</div>
+    <h1 class="hero-title">Building a Smarter Ride-Booking System</h1>
+    <p class="hero-subtitle">
+      Solving driver cancellations and improving rider experience using
+      real-world algorithms, system design, and UX strategies.
+    </p>
+    <div class="hero-meta">
+      <span>12 min read</span>
+      <span class="separator">•</span>
+      <span>Jan 2025</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container" id="blog">
+
+<!-- INTRO -->
+<section class="card reveal">
+  <h2>Why Ride-Booking Apps Fail at Reliability</h2>
+  <p>
+    Most ride-booking platforms fail not due to a lack of drivers, but because of
+    inefficient matching systems, frequent driver cancellations, long search
+    times, language barriers, safety gaps, and unpredictable pricing.
+  </p>
+  <p>
+    This article explains how a modern ride-booking platform can be designed to
+    be faster, fairer, and more reliable through smarter algorithms and better
+    UX decisions.
+  </p>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="card reveal" id="architecture">
+  <h2>High-Level System Architecture</h2>
+
+  <div class="architecture">
+    <div class="arch-node">
+      <div class="arch-icon">📱</div>
+      <div class="arch-label">Mobile App</div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-node">
+      <div class="arch-icon">🚪</div>
+      <div class="arch-label">API Gateway</div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-node highlight">
+      <div class="arch-icon">⚡</div>
+      <div class="arch-label">Matching Engine</div>
+      <div class="arch-tech">Redis</div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-node">
+      <div class="arch-icon">🗄</div>
+      <div class="arch-label">Ride & Pricing Service</div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-node">
+      <div class="arch-icon">🔔</div>
+      <div class="arch-label">Notification & Chat</div>
+    </div>
+  </div>
+
+  <p class="note">
+    Redis enables ultra-fast real-time matching, while event-driven services
+    ensure cancellations, swaps, and updates happen instantly.
+  </p>
+</section>
+
+<!-- FEATURES -->
+<section class="card reveal" id="features">
+  <div class="feature-header">
+    <div class="feature-icon">🚗</div>
+    <h2>Smart Matching & Lock-In System</h2>
+  </div>
+  <p>
+    Drivers accepting rides and cancelling later is one of the biggest trust
+    breakers. A two-phase lock-in system ensures commitment.
+  </p>
+
+  <div class="feature-list">
+    <div class="feature-item">
+      <div class="feature-number">1</div>
+      <div>
+        <strong>Soft Lock</strong>
+        <p>Driver confirms availability</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-number">2</div>
+      <div>
+        <strong>Hard Lock</strong>
+        <p>Driver is locked and cannot accept other rides</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-number">3</div>
+      <div>
+        <strong>Confirmation Window</strong>
+        <p>No response results in penalties</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-diagram">
+    <div class="flow-step">SEARCH</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">OFFERED</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">LOCKED</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">ONGOING</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-icon">💡</div>
+    <div>
+      <strong>UX Insight</strong>
+      <p>Showing "Driver confirming…" feels faster than a loading spinner.</p>
+    </div>
+  </div>
+
+  <button class="btn-code" onclick="toggleCode('code1')">
+    <span>View Algorithm</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <pre id="code1" class="code"><code>matchDriver(ride):
+  drivers = nearby drivers sorted by score
+  for driver in drivers:
+    send offer
+    wait 7 seconds
+    if accepted:
+      lock driver
+      if confirmed:
+        start ride
+      else:
+        penalize driver</code></pre>
+</section>
+
+<section class="card reveal">
+  <div class="feature-header">
+    <div class="feature-icon">🚫</div>
+    <h2>Auto-Removing Frequent Cancel Drivers</h2>
+  </div>
+  <p>
+    Cancellation control should protect platform quality, not punish drivers.
+    Repeated cancellations automatically reduce priority or trigger suspension.
+  </p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Cancellation Rate</th>
+          <th>System Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&lt; 5%</td>
+          <td><span class="badge success">Normal access</span></td>
+        </tr>
+        <tr>
+          <td>5–10%</td>
+          <td><span class="badge warning">Warning issued</span></td>
+        </tr>
+        <tr>
+          <td>10–20%</td>
+          <td><span class="badge alert">Reduced priority</span></td>
+        </tr>
+        <tr>
+          <td>&gt; 20%</td>
+          <td><span class="badge danger">Temporary suspension</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card reveal">
+  <div class="feature-header">
+    <div class="feature-icon">⚖️</div>
+    <h2>Fair Pricing Without Price Shock</h2>
+  </div>
+  <p>
+    Users abandon bookings when prices change unexpectedly. A min–max pricing
+    model ensures transparency while remaining flexible.
+  </p>
+
+  <button class="btn-code" onclick="toggleCode('code2')">
+    <span>View Pricing Formula</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <pre id="code2" class="code"><code>Base Fare = Distance × Rate + Time × Rate
+Min Price = Base × 0.9
+Max Price = Base × 1.2</code></pre>
+
+  <div class="callout">
+    <div class="callout-icon">🎯</div>
+    <div>
+      <strong>UX Principle</strong>
+      <p>Transparency builds more trust than discounts.</p>
+    </div>
+  </div>
+</section>
+
+<section class="card reveal">
+  <div class="feature-header">
+    <div class="feature-icon">⚡</div>
+    <h2>Instant Driver Swap (Zero-Wait UX)</h2>
+  </div>
+  <p>
+    Backup drivers are pre-matched and stored in memory. If a driver cancels,
+    the next driver is assigned instantly without restarting the search.
+  </p>
+  <div class="highlight-box">
+    <p><strong>Result:</strong> Average recovery time reduced from 45s to &lt;2s</p>
+  </div>
+</section>
+
+<section class="card reveal">
+  <div class="feature-header">
+    <div class="feature-icon">🚀</div>
+    <h2>Multi-Driver Search</h2>
+  </div>
+  <p>
+    Instead of sequential searches, ride requests are broadcast to multiple
+    drivers simultaneously.
+  </p>
+  <div class="flow-diagram">
+    <div class="flow-step">User Request</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step highlight">10 Drivers</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">1 Accept</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Others Cancel</div>
+  </div>
+</section>
+
+<section class="card reveal">
+  <div class="feature-header">
+    <div class="feature-icon">🌍</div>
+    <h2>Auto Language Translation in Chat</h2>
+  </div>
+  <p>
+    Language differences often cause confusion. Messages are automatically
+    detected, translated, and delivered in the recipient's language.
+  </p>
+</section>
+
+<section class="card reveal">
+  <div class="feature-header">
+    <div class="feature-icon">🛡️</div>
+    <h2>Women- & Pet-Friendly Ride Options</h2>
+  </div>
+  <p>
+    Safety and inclusivity are essential. Users can select verified
+    women-friendly or pet-friendly drivers before booking.
+  </p>
+</section>
+
+<section class="card reveal">
+  <div class="feature-header">
+    <div class="feature-icon">⭐</div>
+    <h2>Driver Quality Score</h2>
+  </div>
+  <p>
+    Drivers are ranked using a quality score that rewards good behavior and
+    naturally deprioritizes poor performance.
+  </p>
+
+  <button class="btn-code" onclick="toggleCode('code3')">
+    <span>View Algorithm</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <pre id="code3" class="code"><code>Score =
+  Rating × 0.4 +
+  Acceptance Rate × 0.3 +
+  (1 − Cancellation Rate) × 0.3</code></pre>
+</section>
+
+</main>
+
+<!-- CONCLUSION -->
+<section class="conclusion reveal" id="about">
+  <div class="conclusion-container">
+    <h2>Final Thoughts</h2>
+    <p>
+      Reliable ride-booking systems aren't built by adding more drivers —
+      they're built with smarter algorithms, fair policies, and thoughtful UX
+      that prioritizes trust and transparency at every touchpoint.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2025 RideIt System Design</p>
+    <div class="footer-links">
+      <a href="#blog">Blog</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#features">Features</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

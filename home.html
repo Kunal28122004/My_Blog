@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kunal Chauhan - Developer Blog</title>
+  <meta name="description" content="Part time developer full time learner. Sharing insights on system design, development, and technology.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Added decorative background artwork -->
+<div class="bg-artwork">
+  <div class="artwork-circle artwork-circle-1"></div>
+  <div class="artwork-circle artwork-circle-2"></div>
+  <div class="artwork-grid"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nav reveal">
+  <div class="nav-container">
+    <div class="logo">KC</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO WITH PROFILE -->
+<header class="home-hero reveal" id="about">
+  <div class="home-hero-container">
+    <div class="profile-section">
+      <!-- Updated profile image to use provided photo -->
+      <img 
+        src="/public/images/profile-20photo.jpg" 
+        alt="Kunal Chauhan" 
+        class="profile-image"
+      />
+      <div class="profile-content">
+        <h1 class="profile-name">Kunal Chauhan</h1>
+        <p class="profile-tagline">Part time developer full time learner</p>
+        <p class="profile-bio">
+          Building systems, writing code, and sharing what I learn along the way. 
+          Passionate about system design, algorithms, and creating better user experiences.
+        </p>
+        <div class="profile-links">
+          <a href="#writing" class="profile-link-btn">Read my writing</a>
+          <a href="#contact" class="profile-link-outline">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BLOG POSTS -->
+<main class="blog-container" id="writing">
+  <div class="blog-header reveal">
+    <h2 class="section-title">Writing</h2>
+    <p class="section-subtitle">Thoughts on development, system design, and technology</p>
+  </div>
+
+  <div class="blog-grid">
+    <!-- Featured Post -->
+    <article class="blog-card featured reveal">
+      <div class="blog-card-badge">Featured</div>
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span>Jan 2025</span>
+          <span class="separator">•</span>
+          <span>12 min read</span>
+          <span class="separator">•</span>
+          <span class="blog-tag">System Design</span>
+        </div>
+        <h3 class="blog-card-title">
+          <a href="index.html">Building a Smarter Ride-Booking System</a>
+        </h3>
+        <p class="blog-card-excerpt">
+          Solving driver cancellations and improving rider experience using real-world 
+          algorithms, system design principles, and thoughtful UX strategies. Learn how 
+          Redis, event-driven architecture, and smart matching can transform reliability.
+        </p>
+        <div class="blog-card-topics">
+          <span class="topic-pill">Redis</span>
+          <span class="topic-pill">Algorithms</span>
+          <span class="topic-pill">UX Design</span>
+          <span class="topic-pill">Microservices</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Placeholder Posts -->
+    <article class="blog-card reveal">
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span>Coming soon</span>
+        </div>
+        <h3 class="blog-card-title">
+          <a href="#">Optimizing Database Queries at Scale</a>
+        </h3>
+        <p class="blog-card-excerpt">
+          Practical strategies for identifying bottlenecks, optimizing indexes, and 
+          improving query performance in production databases.
+        </p>
+        <div class="blog-card-topics">
+          <span class="topic-pill">Database</span>
+          <span class="topic-pill">Performance</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="blog-card reveal">
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span>Coming soon</span>
+        </div>
+        <h3 class="blog-card-title">
+          <a href="#">Building Real-Time Features with WebSockets</a>
+        </h3>
+        <p class="blog-card-excerpt">
+          A deep dive into implementing real-time communication, handling connection 
+          reliability, and scaling WebSocket servers effectively.
+        </p>
+        <div class="blog-card-topics">
+          <span class="topic-pill">WebSockets</span>
+          <span class="topic-pill">Real-time</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="blog-card reveal">
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span>Coming soon</span>
+        </div>
+        <h3 class="blog-card-title">
+          <a href="#">API Design Best Practices</a>
+        </h3>
+        <p class="blog-card-excerpt">
+          Learn how to design clean, intuitive APIs that developers love to use. 
+          Covering REST principles, versioning, and error handling.
+        </p>
+        <div class="blog-card-topics">
+          <span class="topic-pill">API</span>
+          <span class="topic-pill">REST</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="blog-card reveal">
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span>Coming soon</span>
+        </div>
+        <h3 class="blog-card-title">
+          <a href="#">Understanding React Performance Optimization</a>
+        </h3>
+        <p class="blog-card-excerpt">
+          Explore React rendering behavior, memo patterns, and practical techniques 
+          to keep your applications fast and responsive.
+        </p>
+        <div class="blog-card-topics">
+          <span class="topic-pill">React</span>
+          <span class="topic-pill">Performance</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="blog-card reveal">
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span>Coming soon</span>
+        </div>
+        <h3 class="blog-card-title">
+          <a href="#">Microservices Communication Patterns</a>
+        </h3>
+        <p class="blog-card-excerpt">
+          Compare synchronous vs asynchronous communication, message queues, and 
+          event-driven architectures in distributed systems.
+        </p>
+        <div class="blog-card-topics">
+          <span class="topic-pill">Microservices</span>
+          <span class="topic-pill">Architecture</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section reveal" id="contact">
+  <div class="contact-container">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="contact-text">
+      I'm always interested in hearing about new opportunities, collaborations, or just chatting about technology. 
+      Feel free to reach out!
+    </p>
+    <div class="social-links">
+      <!-- Updated all social links with real URLs -->
+      <a href="mailto:kunal.dev.official07@gmail.com" class="social-link" title="Email">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span>Email</span>
+      </a>
+      <a href="https://github.com/Kunal28122004" class="social-link" title="GitHub" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/kunal-chauhan-626164296" class="social-link" title="LinkedIn" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://x.com/KunalChauh48311" class="social-link" title="Twitter" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Kunal Chauhan. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
